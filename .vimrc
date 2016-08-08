@@ -31,6 +31,8 @@ set confirm
 
 set cmdheight=2
 
+set number
+
 set shiftwidth=4
 set softtabstop=4
 set expandtab

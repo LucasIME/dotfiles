@@ -17,8 +17,6 @@ set ruler " Display the cursor position on the last line of the screen or in the
 
 set hidden
 
-set hlsearch
-
 set ignorecase
 set smartcase
 

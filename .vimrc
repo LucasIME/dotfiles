@@ -1,16 +1,19 @@
-filetype indent plugin on
+filetype indent plugin on " load filetype-specific indent files
 
-syntax on
-
-filetype off
-
-filetype plugin indent on
+syntax enable 
+set tabstop=4 " number of visual spaces per TAB
+set softtabstop=4 " number of spaces in tab when editing
+set expandtab " tabs are spaces
+set number " show line numbers
+set showcmd " show command in bottom bar
+set cursorline " highlight current line
+set wildmenu " visual autocomplete for command menu
+set lazyredraw " redraw only when need to
+set showmatch " highlight matching [{()}]
+set incsearch " search as characters are entered
+set hlsearch " highlight matches
 
 set hidden
-
-set wildmenu
-
-set showcmd
 
 set hlsearch
 
@@ -33,8 +36,4 @@ set cmdheight=2
 
 set number
 
-set shiftwidth=4
-set softtabstop=4
-set expandtab
-set tabstop=4
 set smarttab

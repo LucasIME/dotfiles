@@ -12,6 +12,8 @@ set lazyredraw " redraw only when need to
 set showmatch " highlight matching [{()}]
 set incsearch " search as characters are entered
 set hlsearch " highlight matches
+set confirm "Instade of failing a command because of unsaved changes, raise a dialogue asking if you with to save changed files.
+set ruler " Display the cursor position on the last line of the screen or in the status line of a window
 
 set hidden
 
@@ -26,14 +28,8 @@ set autoindent
 
 set nostartofline
 
-set ruler
-
 set laststatus=1
 
-set confirm
-
 set cmdheight=2
-
-set number
 
 set smarttab

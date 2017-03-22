@@ -8,7 +8,6 @@ set expandtab " tabs are spaces
 set smarttab " Uses shiftwidth instead of tabstop at start of lines
 set number " show line numbers
 set showcmd " show command in bottom bar
-set cursorline " highlight current line
 set wildmenu " visual autocomplete for command menu
 set lazyredraw " redraw only when need to
 set showmatch " highlight matching [{()}]

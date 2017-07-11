@@ -1,5 +1,11 @@
 filetype indent plugin on " load filetype-specific indent files
 
+call plug#begin()
+Plug 'vim-scripts/lastpos.vim' " Goes back to last position you were when opening a file again
+Plug 'leafgarland/typescript-vim' " suport for typescript
+
+call plug#end()
+
 color dracula
 
 syntax enable 

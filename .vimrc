@@ -5,6 +5,7 @@ Plug 'vim-scripts/lastpos.vim' " Goes back to last position you were when openin
 Plug 'leafgarland/typescript-vim' " suport for typescript
 Plug 'bling/vim-airline' " Cool line on the bottom
 Plug 'elzr/vim-json' " Json syntax highlighting 
+Plug 'scrooloose/nerdtree' " Tree explorer
 call plug#end()
 
 color dracula
@@ -35,3 +36,4 @@ set backspace=indent,eol,start " allows backspacing over autoindent, line breaks
 set hidden " Hide buffers when they are abandoned
 set clipboard=unnamed " Use Windows clipboard
 set noswapfile " no swap file, duh
+map ! :NERDTreeToggle<CR> " ! as Shortcut to NERD Tree

@@ -36,4 +36,4 @@ set backspace=indent,eol,start " allows backspacing over autoindent, line breaks
 set hidden " Hide buffers when they are abandoned
 set clipboard=unnamed " Use Windows clipboard
 set noswapfile " no swap file, duh
-map ! :NERDTreeToggle<CR> " ! as Shortcut to NERD Tree
+map @ :NERDTreeToggle<CR> " @ as Shortcut to NERD Tree

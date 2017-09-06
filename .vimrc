@@ -6,6 +6,7 @@ Plug 'leafgarland/typescript-vim' " suport for typescript
 Plug 'bling/vim-airline' " Cool line on the bottom
 Plug 'elzr/vim-json' " Json syntax highlighting 
 Plug 'scrooloose/nerdtree' " Tree explorer
+Plug 'dracula/vim' " Vim dracula colorscheme
 call plug#end()
 
 color dracula

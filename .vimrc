@@ -24,7 +24,7 @@ set lazyredraw " redraw only when need to
 set showmatch " highlight matching [{()}]
 set incsearch " search as characters are entered
 set hlsearch " highlight matches
-set confirm "Instade of failing a command because of unsaved changes, raise a dialogue asking if you with to save changed files
+set confirm "Instead of failing a command because of unsaved changes, raise a dialogue asking if you with to save changed files
 set ruler " Display the cursor position on the last line of the screen or in the status line of a window
 set autoindent " Copy the indentation from the previous line when starting a new one
 set smartindent " Automatically inserts one extra level of indentation in some cases

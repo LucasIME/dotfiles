@@ -1,5 +1,12 @@
 filetype indent plugin on " load filetype-specific indent files
 
+" Auto install vim-plug if not installed
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin()
 Plug 'vim-scripts/lastpos.vim' " Goes back to last position you were when opening a file again
 Plug 'leafgarland/typescript-vim' " suport for typescript

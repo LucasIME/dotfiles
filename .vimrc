@@ -9,6 +9,7 @@ endif
 
 call plug#begin()
 Plug 'vim-scripts/lastpos.vim' " Goes back to last position you were when opening a file again
+Plug 'sheerun/vim-polyglot' " Syntax highlight for many different languages
 Plug 'leafgarland/typescript-vim' " suport for typescript
 Plug 'bling/vim-airline' " Cool line on the bottom
 Plug 'elzr/vim-json' " Json syntax highlighting 

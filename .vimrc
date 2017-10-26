@@ -16,6 +16,7 @@ Plug 'elzr/vim-json' " Json syntax highlighting
 Plug 'scrooloose/nerdtree' " Tree explorer
 Plug 'dracula/vim' " Vim dracula colorscheme
 Plug 'airblade/vim-gitgutter' " Shows git diff on line
+Plug 'w0rp/ale' " Asynchronous linting
 call plug#end()
 
 color dracula

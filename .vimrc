@@ -27,7 +27,7 @@ call plug#end()
 
 color vimbrant    
 
-syntax enable 
+syntax enable
 set tabstop=4 " number of visual spaces per TAB
 set softtabstop=4 " number of spaces in tab when editing (backspace delete 4 spaces)
 set shiftwidth=4 " affect what happens when you press >>, << or ==. Also affect how automatic indentation works
@@ -53,4 +53,6 @@ set backspace=indent,eol,start " allows backspacing over autoindent, line breaks
 set hidden " Hide buffers when they are abandoned
 set clipboard=unnamed " Use Windows clipboard
 set noswapfile " no swap file, duh
+set scrolloff=9 " start scrolling before end is reached
 map @ :NERDTreeToggle<CR> " @ as Shortcut to NERD Tree
+

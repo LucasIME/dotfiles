@@ -12,11 +12,13 @@ Plug 'vim-scripts/lastpos.vim' " Goes back to last position you were when openin
 Plug 'sheerun/vim-polyglot' " Syntax highlight for many different languages
 Plug 'leafgarland/typescript-vim' " suport for typescript
 Plug 'bling/vim-airline' " Cool line on the bottom
-Plug 'elzr/vim-json' " Json syntax highlighting 
+Plug 'elzr/vim-json' " Json syntax highlighting
 Plug 'scrooloose/nerdtree' " Tree explorer
 Plug 'airblade/vim-gitgutter' " Shows git diff on line
 Plug 'w0rp/ale' " Asynchronous linting
 Plug 'flazz/vim-colorschemes' " Numerous colorschemes
+Plug 'ryanoasis/vim-devicons' " Icons
+Plug 'wincent/terminus' " Enhance terminal integration with vim
 call plug#end()
 
 " Code for randomly chosing between different colorschemes on startup
@@ -25,9 +27,10 @@ call plug#end()
 "execute 'colorscheme '.split(schemes)[seconds%4]
 "redraw
 
-color vimbrant    
+color vimbrant
 
 syntax enable
+set encoding=utf8
 set tabstop=4 " number of visual spaces per TAB
 set softtabstop=4 " number of spaces in tab when editing (backspace delete 4 spaces)
 set shiftwidth=4 " affect what happens when you press >>, << or ==. Also affect how automatic indentation works
@@ -54,5 +57,5 @@ set hidden " Hide buffers when they are abandoned
 set clipboard=unnamed " Use Windows clipboard
 set noswapfile " no swap file, duh
 set scrolloff=9 " start scrolling before end is reached
+match ErrorMsg '\s\+$'
 map @ :NERDTreeToggle<CR> " @ as Shortcut to NERD Tree
-

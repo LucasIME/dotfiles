@@ -19,6 +19,7 @@ Plug 'w0rp/ale' " Asynchronous linting
 Plug 'flazz/vim-colorschemes' " Numerous colorschemes
 Plug 'ryanoasis/vim-devicons' " Icons
 Plug 'wincent/terminus' " Enhance terminal integration with vim
+Plug 'Valloric/YouCompleteMe' " Autocomplete plugin
 call plug#end()
 
 " Code for randomly chosing between different colorschemes on startup
@@ -59,3 +60,4 @@ set noswapfile " no swap file, duh
 set scrolloff=9 " start scrolling before end is reached
 match ErrorMsg '\s\+$'
 map @ :NERDTreeToggle<CR> " @ as Shortcut to NERD Tree
+let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py' " Youcompleteme fix for cpp

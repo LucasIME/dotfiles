@@ -61,3 +61,4 @@ set scrolloff=9 " start scrolling before end is reached
 match ErrorMsg '\s\+$'
 map @ :NERDTreeToggle<CR> " @ as Shortcut to NERD Tree
 let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py' " Youcompleteme fix for cpp
+let g:ycm_autoclose_preview_window_after_completion = 1 " Auto close preview window

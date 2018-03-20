@@ -31,6 +31,7 @@ call plug#end()
 color vimbrant
 
 syntax enable
+set showmode " Show current mode (Insert, Visual, etc...)
 set encoding=utf8
 set tabstop=4 " number of visual spaces per TAB
 set softtabstop=4 " number of spaces in tab when editing (backspace delete 4 spaces)

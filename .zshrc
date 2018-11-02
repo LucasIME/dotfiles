@@ -7,6 +7,12 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 # Most used commands
 alias mostused='history | awk '\''{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}'\'' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl |  head -n10'
 
+# Show most changed files on git repo
+alias gitmostused='git log --pretty=format: --name-only | sort | uniq -c | sort -rg | head -10'
+
+# Reset numbers of tmux windows
+alias tmuxreset='tmux movew -r'
+
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/lucasime/.oh-my-zsh
 

@@ -63,6 +63,7 @@ set clipboard=unnamed " Use Windows clipboard
 set noswapfile " no swap file, duh
 set scrolloff=9 " start scrolling before end is reached
 set t_Co=256 " 256 colors
+set display+=uhex " display hex codes for non printable characters
 match ErrorMsg '\s\+$'
 map @ :NERDTreeToggle<CR> " @ as Shortcut to NERD Tree
 let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py' " Youcompleteme fix for cpp

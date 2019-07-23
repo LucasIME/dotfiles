@@ -20,17 +20,20 @@ Plug 'flazz/vim-colorschemes' " Numerous colorschemes
 Plug 'ryanoasis/vim-devicons' " Icons
 Plug 'wincent/terminus' " Enhance terminal integration with vim
 Plug 'Valloric/YouCompleteMe' " Autocomplete plugin
-call plug#end()
+Plug 'fatih/vim-go' " Go development plugin
+Plug 'junegunn/fzf.vim' " fzf plugin
+call plug#end() " All of your plugins must be added before this line
 
 " Code for randomly chosing between different colorschemes on startup
-"let schemes = 'dracula vimbrant sean maroloccio3'
-"let seconds = str2nr(strftime('%S'))
-"execute 'colorscheme '.split(schemes)[seconds%4]
-"redraw
+" let schemes = 'dracula vimbrant sean maroloccio3'
+" let seconds = str2nr(strftime('%S'))
+" execute 'colorscheme '.split(schemes)[seconds%4]
+" redraw
 
-color vimbrant
+colorscheme Tomorrow-Night-Eighties
 
 syntax enable
+set nocompatible "be iMproved
 set showmode " Show current mode (Insert, Visual, etc...)
 set encoding=utf8
 set tabstop=4 " number of visual spaces per TAB
@@ -63,3 +66,6 @@ match ErrorMsg '\s\+$'
 map @ :NERDTreeToggle<CR> " @ as Shortcut to NERD Tree
 let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py' " Youcompleteme fix for cpp
 let g:ycm_autoclose_preview_window_after_completion = 1 " Auto close preview window
+
+set rtp+=/usr/local/opt/fzf
+

@@ -22,6 +22,7 @@ Plug 'wincent/terminus' " Enhance terminal integration with vim
 Plug 'Valloric/YouCompleteMe' " Autocomplete plugin
 Plug 'fatih/vim-go' " Go development plugin
 Plug 'junegunn/fzf.vim' " fzf plugin
+Plug 'christoomey/vim-tmux-navigator' " tmux and vim integration
 call plug#end() " All of your plugins must be added before this line
 
 " Code for randomly chosing between different colorschemes on startup

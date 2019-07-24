@@ -14,7 +14,7 @@ alias gitmostused='git log --pretty=format: --name-only | sort | uniq -c | sort 
 alias tmuxreset='tmux movew -r'
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/lucasime/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.

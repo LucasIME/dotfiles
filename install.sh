@@ -65,6 +65,11 @@ install_oh_my_zsh() {
     sh -c "$(curl -fsSLk https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 }
 
+install_on_my_zsh_plugins() {
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+}
+
 ### Main ###
 
 install_git
@@ -75,4 +80,5 @@ programs_to_install=(vim tmux zsh ripgrep)
 for program in "${programs_to_install[@]}"; do try_install "$program"; done;
 
 install_oh_my_zsh
+install_on_my_zsh_plugins
 pull_dotfiles_from_github

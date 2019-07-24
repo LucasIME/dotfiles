@@ -51,14 +51,14 @@ pull_dotfiles_from_github() {
     DOTFILES_REPO=https://github.com/LucasIME/dotfiles.git
     echo ".cfg" >> .gitignore
     git clone --bare $DOTFILES_REPO $HOME/.cfg
-    alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+    config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
     mkdir -p .config-backup && \
         config checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | \
         xargs -I{} mv {} .config-backup/{}
-    config checkout
-    config reset --hard
-    config pull
-    config config --local status.showUntrackedFiles no
+    $config checkout
+    $config reset --hard
+    $config pull
+    $config config --local status.showUntrackedFiles no
 }
 
 install_oh_my_zsh() {
@@ -76,4 +76,3 @@ for program in "${programs_to_install[@]}"; do try_install "$program"; done;
 
 install_oh_my_zsh
 pull_dotfiles_from_github
-

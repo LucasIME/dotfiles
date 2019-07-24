@@ -34,7 +34,7 @@ try_install() {
 
 ### Installations that need specific commands ###
 install_git() {
-    install "git"
+    try_install git
     git config --global http.sslVerify false
 }
 

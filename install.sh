@@ -13,7 +13,7 @@ install() {
     if command_installed "brew"; then
         brew install $1
     elif command_installed "yum"; then
-        yum install $1
+        yum install -y $1
     elif command_installed "apt-get"; then
         apt-get $1
     else
@@ -68,7 +68,6 @@ install_oh_my_zsh() {
 ### Main ###
 
 install_git
-pull_dotfiles_from_github
 install_fzf
 
 programs_to_install=(vim tmux zsh ripgrep)
@@ -76,4 +75,5 @@ programs_to_install=(vim tmux zsh ripgrep)
 for program in "${programs_to_install[@]}"; do try_install "$program"; done;
 
 install_oh_my_zsh
+pull_dotfiles_from_github
 

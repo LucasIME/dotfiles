@@ -15,6 +15,9 @@ alias tmuxreset='tmux movew -r'
 
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home
+export PATH=/Users/lmeireles/.cargo/bi:$PATH:$HOME/anaconda3/bin
+export GOPATH=/Users/lmeireles/Projects/GoProjs
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -96,3 +99,4 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

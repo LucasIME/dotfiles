@@ -23,15 +23,15 @@ Plug 'Valloric/YouCompleteMe' " Autocomplete plugin
 Plug 'fatih/vim-go' " Go development plugin
 Plug 'junegunn/fzf.vim' " fzf plugin
 Plug 'christoomey/vim-tmux-navigator' " tmux and vim integration
+Plug 'rust-lang/rust.vim' " Rust development plugin
+Plug 'racer-rust/vim-racer' " Rust autocomplete
 call plug#end() " All of your plugins must be added before this line
 
 " Code for randomly chosing between different colorschemes on startup
-" let schemes = 'dracula vimbrant sean maroloccio3'
+" let schemes = 'dracula vimbrant sean maroloccio3 Tomorrow-Night-Eighties'
 " let seconds = str2nr(strftime('%S'))
 " execute 'colorscheme '.split(schemes)[seconds%4]
 " redraw
-
-colorscheme Tomorrow-Night-Eighties
 
 syntax enable
 set nocompatible "be iMproved
@@ -71,4 +71,3 @@ let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd
 let g:ycm_autoclose_preview_window_after_completion = 1 " Auto close preview window
 
 set rtp+=/usr/local/opt/fzf
-

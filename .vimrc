@@ -60,7 +60,7 @@ set laststatus=2 " Always show status line on window
 set cmdheight=2 " number of screen lines for the command line
 set backspace=indent,eol,start " allows backspacing over autoindent, line breaks (join lines) and over the start of insert
 set hidden " Hide buffers when they are abandoned
-set clipboard=unnamed " Use Windows clipboard
+set clipboard^=unnamed,unnamedplus " Use system clipboard
 set noswapfile " no swap file, duh
 set scrolloff=9 " start scrolling before end is reached
 set t_Co=256 " 256 colors

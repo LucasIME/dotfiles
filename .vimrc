@@ -19,7 +19,8 @@ Plug 'w0rp/ale' " Asynchronous linting
 Plug 'flazz/vim-colorschemes' " Numerous colorschemes
 Plug 'ryanoasis/vim-devicons' " Icons
 Plug 'wincent/terminus' " Enhance terminal integration with vim
-Plug 'Valloric/YouCompleteMe' " Autocomplete plugin
+Plug 'ycm-core/YouCompleteMe', { 'do': './install.py -all' } " Autocomplete plugin
+Plug 'scrooloose/syntastic'
 Plug 'fatih/vim-go' " Go development plugin
 Plug 'junegunn/fzf.vim' " fzf plugin
 Plug 'christoomey/vim-tmux-navigator' " tmux and vim integration

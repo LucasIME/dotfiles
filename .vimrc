@@ -21,11 +21,10 @@ Plug 'ryanoasis/vim-devicons' " Icons
 Plug 'wincent/terminus' " Enhance terminal integration with vim
 Plug 'ycm-core/YouCompleteMe', { 'do': './install.py -all' } " Autocomplete plugin
 Plug 'scrooloose/syntastic'
-Plug 'fatih/vim-go' " Go development plugin
 Plug 'junegunn/fzf.vim' " fzf plugin
 Plug 'christoomey/vim-tmux-navigator' " tmux and vim integration
-Plug 'rust-lang/rust.vim' " Rust development plugin
-Plug 'racer-rust/vim-racer' " Rust autocomplete
+Plug 'preservim/nerdcommenter'
+Plug 'ctrlpvim/ctrlp.vim'
 call plug#end() " All of your plugins must be added before this line
 
 " Code for randomly chosing between different colorschemes on startup
@@ -67,7 +66,13 @@ set scrolloff=9 " start scrolling before end is reached
 set t_Co=256 " 256 colors
 set display+=uhex " display hex codes for non printable characters
 match ErrorMsg '\s\+$'
+
+
+" Remaps
 map @ :NERDTreeToggle<CR> " @ as Shortcut to NERD Tree
+map <C-_> <Plug>NERDCommenterToggle
+
+" Plugin Configs
 let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py' " Youcompleteme fix for cpp
 let g:ycm_autoclose_preview_window_after_completion = 1 " Auto close preview window
 

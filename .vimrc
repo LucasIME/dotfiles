@@ -19,12 +19,11 @@ Plug 'w0rp/ale' " Asynchronous linting
 Plug 'flazz/vim-colorschemes' " Numerous colorschemes
 Plug 'ryanoasis/vim-devicons' " Icons
 Plug 'wincent/terminus' " Enhance terminal integration with vim
-Plug 'ycm-core/YouCompleteMe', { 'do': './install.py -all' } " Autocomplete plugin
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'scrooloose/syntastic'
 Plug 'junegunn/fzf.vim' " fzf plugin
 Plug 'christoomey/vim-tmux-navigator' " tmux and vim integration
 Plug 'preservim/nerdcommenter'
-Plug 'ctrlpvim/ctrlp.vim'
 call plug#end() " All of your plugins must be added before this line
 
 " Code for randomly chosing between different colorschemes on startup
@@ -71,9 +70,30 @@ match ErrorMsg '\s\+$'
 " Remaps
 map @ :NERDTreeToggle<CR> " @ as Shortcut to NERD Tree
 map <C-_> <Plug>NERDCommenterToggle
+nnoremap <C-p> :Files<cr>
 
 " Plugin Configs
-let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py' " Youcompleteme fix for cpp
-let g:ycm_autoclose_preview_window_after_completion = 1 " Auto close preview window
+let g:coc_global_extensions = [
+  \ 'coc-tsserver',
+  \ 'coc-json',
+  \ 'coc-go',
+  \ 'coc-java',
+  \ 'coc-python',
+  \ 'coc-rust-analyzer',
+  \ ]
+
+" use <tab> for trigger coc completion and navigate to the next complete item
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
+
+" Use ctrl + space to trigger coc autocomplete
+inoremap <silent><expr> <c-@> coc#refresh()
 
 set rtp+=/usr/local/opt/fzf

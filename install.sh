@@ -48,6 +48,7 @@ install_fzf() {
 }
 
 pull_dotfiles_from_github() {
+    nf
     DOTFILES_REPO=https://github.com/LucasIME/dotfiles.git
     echo ".cfg" >> .gitignore
     git clone --bare $DOTFILES_REPO $HOME/.cfg
@@ -65,10 +66,15 @@ install_oh_my_zsh() {
     sh -c "$(curl -fsSLk https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 }
 
-install_on_my_zsh_plugins() {
+install_oh_my_zsh_plugins() {
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
     git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
     try_install autojump
+}
+
+install_pure_prompt() {
+    mkdir -p "$HOME/.zsh"
+    git clone https://github.com/sindresorhus/pure.git "$HOME/.zsh/pure"
 }
 
 ### Main ###
@@ -81,5 +87,6 @@ programs_to_install=(vim tmux zsh ripgrep)
 for program in "${programs_to_install[@]}"; do try_install "$program"; done;
 
 install_oh_my_zsh
-install_on_my_zsh_plugins
+install_oh_my_zsh_plugins
 pull_dotfiles_from_github
+install_pure_prompt

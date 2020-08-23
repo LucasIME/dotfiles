@@ -21,9 +21,6 @@ export GOPATH=/Users/lmeireles/Projects/GoProjs
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="" # No theme because I'm usign Pure: https://github.com/sindresorhus/pure
 
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.

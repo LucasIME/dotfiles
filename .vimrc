@@ -82,6 +82,12 @@ let g:coc_global_extensions = [
   \ 'coc-rust-analyzer',
   \ ]
 
+" GoTo code navigation
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
 " use <tab> for trigger coc completion and navigate to the next complete item
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -92,6 +98,7 @@ inoremap <silent><expr> <Tab>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<Tab>" :
       \ coc#refresh()
+
 
 " Use ctrl + space to trigger coc autocomplete
 inoremap <silent><expr> <c-@> coc#refresh()

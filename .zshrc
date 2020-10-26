@@ -75,10 +75,7 @@ source $ZSH/oh-my-zsh.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-source /Users/lmeireles/Library/Preferences/org.dystroy.broot/launcher/bash/br
-
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-export TERM=xterm-256color-italic
 
 # Pure promp
 fpath+=$HOME/.zsh/pure

@@ -64,6 +64,7 @@ set noswapfile " no swap file, duh
 set scrolloff=9 " start scrolling before end is reached
 set t_Co=256 " 256 colors
 set display+=uhex " display hex codes for non printable characters
+set shortmess-=S " display number of matches up to 99 when searching something
 match ErrorMsg '\s\+$'
 
 

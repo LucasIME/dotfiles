@@ -110,4 +110,6 @@ npm() {
     npm "$@"
 }
 
+setopt APPEND_HISTORY
+
 # zprof

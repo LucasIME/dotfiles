@@ -52,6 +52,7 @@ set confirm "Instead of failing a command because of unsaved changes, raise a di
 set ruler " Display the cursor position on the last line of the screen or in the status line of a window
 set autoindent " Copy the indentation from the previous line when starting a new one
 set smartindent " Automatically inserts one extra level of indentation in some cases
+set copyindent " Copy the previous indentation on autoindenting
 set ignorecase " Ignore case when searching
 set smartcase " If the pattern contains an uppercase, search is case sensitive. It is case insensitive, otherwise
 set nostartofline " Keeps cursor on same column when line is changed due to command

@@ -12,6 +12,9 @@ alias gitmostused='git log --pretty=format: --name-only | sort | uniq -c | sort 
 # Reset numbers of tmux windows
 alias tmuxreset='tmux movew -r'
 
+# Largest dirs
+alias ldir='du -hs */ | sort -hr | head'
+
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 export JAVA_HOME=`/usr/libexec/java_home -v 14`

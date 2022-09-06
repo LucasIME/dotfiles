@@ -17,7 +17,7 @@ alias ldir='du -hs */ | sort -hr | head'
 
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
-export JAVA_HOME=`/usr/libexec/java_home -v 14`
+export JAVA_HOME=`/usr/libexec/java_home -v 15`
 export PATH=/Users/lmeireles/.cargo/bi:$PATH:$HOME/anaconda3/bin:/usr/local/sbin
 export GOPATH=/Users/lmeireles/Projects/GoProjs
 

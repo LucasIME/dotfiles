@@ -101,6 +101,11 @@ install_pure_prompt() {
     git clone https://github.com/sindresorhus/pure.git "$HOME/.zsh/pure"
 }
 
+install_tmux_plugins() {
+    echo "Cloning and installing Tmux plugin manager: tpm"
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+}
+
 ### Main ###
 
 install_package_manager_if_mac
@@ -112,6 +117,7 @@ programs_to_install=(vim tmux zsh ripgrep)
 
 for program in "${programs_to_install[@]}"; do try_install "$program"; done;
 
+install_tmux_plugins
 install_oh_my_zsh
 install_oh_my_zsh_plugins
 pull_dotfiles_from_github

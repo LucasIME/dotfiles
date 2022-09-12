@@ -44,7 +44,16 @@ install_package_manager_if_mac() {
             echo "Done instaling Brew."
         fi
     else
-        echo "Not running MacOs. No need to try to install Brew"
+        echo "Not running MacOs. No need to try to install Brew."
+    fi
+}
+
+install_reattach_to_user_namespace_if_mac() {
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        echo "Running MacOS. Checking if reattech-to-user-namespace is installed."
+        try_install reattach-to-user-namespace
+    else
+        echo "Not running MacOs. No need to try to install reattach-to-user-namespace."
     fi
 }
 
@@ -95,6 +104,7 @@ install_pure_prompt() {
 ### Main ###
 
 install_package_manager_if_mac
+install_reattach_to_user_namespace_if_mac
 install_git
 install_fzf
 

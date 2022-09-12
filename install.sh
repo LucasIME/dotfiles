@@ -33,6 +33,21 @@ try_install() {
 }
 
 ### Installations that need specific commands ###
+install_package_manager_if_mac() {
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        echo "Running MacOS. Checking if brew is installed"
+        if command_installed "brew"; then
+            echo "Brew already installed. Continuing to next step."
+        else
+            echo "Brew not installed. Installing now."
+            /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+            echo "Done instaling Brew."
+        fi
+    else
+        echo "Not running MacOs. No need to try to install Brew"
+    fi
+}
+
 install_git() {
     try_install git
     git config --global http.sslVerify false
@@ -79,6 +94,7 @@ install_pure_prompt() {
 
 ### Main ###
 
+install_package_manager_if_mac
 install_git
 install_fzf
 

@@ -105,8 +105,6 @@ inoremap <silent><expr> <Tab>
       \ coc#refresh()
 
 inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
-inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<TAB>"
-
 
 " Use ctrl + space to trigger coc autocomplete
 inoremap <silent><expr> <c-@> coc#refresh()

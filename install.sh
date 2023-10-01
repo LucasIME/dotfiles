@@ -63,16 +63,22 @@ install_git() {
 }
 
 install_fzf() {
+    if command_installed "fzf"; then
+        echo "fzf already installed"
+        return
+    fi
+
     if command_installed "brew"; then
         brew install fzf
         $(brew --prefix)/opt/fzf/install
     else
-        echo "Could not install fzf"
+        echo "Installing fzf through git"
+        git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+        ~/.fzf/install
     fi
 }
 
 pull_dotfiles_from_github() {
-    nf
     DOTFILES_REPO=https://github.com/LucasIME/dotfiles.git
     echo ".cfg" >> .gitignore
     git clone --bare $DOTFILES_REPO $HOME/.cfg
@@ -118,12 +124,12 @@ install_tmux_plugins() {
 install_package_manager_if_mac
 install_reattach_to_user_namespace_if_mac
 install_git
-install_fzf
 
 programs_to_install=(vim tmux zsh ripgrep)
 
 for program in "${programs_to_install[@]}"; do try_install "$program"; done;
 
+install_fzf
 install_tmux_plugins
 install_oh_my_zsh
 install_oh_my_zsh_plugins

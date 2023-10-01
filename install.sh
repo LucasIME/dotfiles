@@ -15,7 +15,7 @@ install() {
     elif command_installed "yum"; then
         yum install -y $1
     elif command_installed "apt-get"; then
-        apt-get $1
+        apt-get install $1
     else
         echo "error can't install package $1"
         return 1;

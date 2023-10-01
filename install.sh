@@ -2,7 +2,7 @@
 
 ### Functions Block ###
 command_installed() {
-    if ! [ -x "$(command -v $1)" ]; then
+    if ! [ -x "$(command -v "$1")" ]; then
         return 1
     else
         return 0
@@ -11,11 +11,11 @@ command_installed() {
 
 install() {
     if command_installed "brew"; then
-        brew install $1
+        brew install "$1"
     elif command_installed "yum"; then
-        yum install -y $1
+        yum install -y "$1"
     elif command_installed "apt-get"; then
-        apt-get install $1
+        apt-get install "$1"
     else
         echo "error can't install package $1"
         return 1;
@@ -23,12 +23,12 @@ install() {
 }
 
 try_install() {
-    if command_installed $1; then
-        echo $1' already installed'
+    if command_installed "$1"; then
+        echo "$1"' already installed'
     else
-        echo 'Error: '$1' is not installed.' >&2
-        echo 'Trying to install '$1
-        install $1
+        echo 'Error: '"$1"' is not installed.' >&2
+        echo 'Trying to install '"$1"
+        install "$1"
     fi
 }
 
@@ -70,7 +70,7 @@ install_fzf() {
 
     if command_installed "brew"; then
         brew install fzf
-        $(brew --prefix)/opt/fzf/install
+        "$(brew --prefix)/opt/fzf/install":
     else
         echo "Installing fzf through git"
         git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
@@ -81,10 +81,10 @@ install_fzf() {
 pull_dotfiles_from_github() {
     DOTFILES_REPO=https://github.com/LucasIME/dotfiles.git
     echo ".cfg" >> .gitignore
-    git clone --bare $DOTFILES_REPO $HOME/.cfg
+    git clone --bare $DOTFILES_REPO "$HOME"/.cfg
     config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
     mkdir -p .config-backup && \
-        config checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | \
+        config checkout 2>&1 | grep -E "\s+\." | awk {'print $1'} | \
         xargs -I{} mv {} .config-backup/{}
     $config checkout
     $config reset --hard
@@ -98,13 +98,13 @@ install_oh_my_zsh() {
 
 install_oh_my_zsh_plugins() {
     echo "Installing zsh syntax highlighting"
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"/plugins/zsh-syntax-highlighting
 
     echo "Installing zsh autosuggestions"
-    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+    git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"/plugins/zsh-autosuggestions
 
     echo "Installing zsh completions"
-    git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions
+    git clone https://github.com/zsh-users/zsh-completions "${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}"/plugins/zsh-completions
 
     try_install autojump
 }

@@ -1,7 +1,4 @@
-alt_send_esc = true
-enable_experimental_conpty_backend = false
 live_config_reload = true
-"window.dynamic_title" = true
 working_directory = "None"
 
 [bell]
@@ -44,7 +41,6 @@ unfocused_hollow = true
 log_level = "Warn"
 persistent_logging = false
 print_events = false
-ref_test = false
 render_timer = false
 
 [font]
@@ -589,84 +585,6 @@ hide_when_typing = false
 [[mouse.bindings]]
 action = "PasteSelection"
 mouse = "Middle"
-
-[mouse.double_click]
-threshold = 300
-
-[mouse.triple_click]
-threshold = 300
-
-[schemes.monokai_pro.bright]
-black = "0x727072"
-blue = "0xFC9867"
-cyan = "0x78DCE8"
-green = "0xA9DC76"
-magenta = "0xAB9DF2"
-red = "0xFF6188"
-white = "0xFCFCFA"
-yellow = "0xFFD866"
-
-[schemes.monokai_pro.normal]
-black = "0x403E41"
-blue = "0xFC9867"
-cyan = "0x78DCE8"
-green = "0xA9DC76"
-magenta = "0xAB9DF2"
-red = "0xFF6188"
-white = "0xFCFCFA"
-yellow = "0xFFD866"
-
-[schemes.monokai_pro.primary]
-background = "0x2D2A2E"
-foreground = "0xFCFCFA"
-
-[schemes.nord.bright]
-black = "0x4C566A"
-blue = "0x81A1C1"
-cyan = "0x8FBCBB"
-green = "0xA3BE8C"
-magenta = "0xB48EAD"
-red = "0xBF616A"
-white = "0xECEFF4"
-yellow = "0xEBCB8B"
-
-[schemes.nord.normal]
-black = "0x3B4252"
-blue = "0x81A1C1"
-cyan = "0x88C0D0"
-green = "0xA3BE8C"
-magenta = "0xB48EAD"
-red = "0xBF616A"
-white = "0xE5E9F0"
-yellow = "0xEBCB8B"
-
-[schemes.nord.primary]
-background = "0x2E3440"
-foreground = "0xD8DEE9"
-
-[schemes.one_dark.bright]
-black = "0x5c6370"
-blue = "0x61afef"
-cyan = "0x56b6c2"
-green = "0x98c379"
-magenta = "0xc678dd"
-red = "0xe06c75"
-white = "0xffffff"
-yellow = "0xd19a66"
-
-[schemes.one_dark.normal]
-black = "0x282c34"
-blue = "0x61afef"
-cyan = "0x56b6c2"
-green = "0x98c379"
-magenta = "0xc678dd"
-red = "0xe06c75"
-white = "0xabb2bf"
-yellow = "0xd19a66"
-
-[schemes.one_dark.primary]
-background = "0x282c34"
-foreground = "0xabb2bf"
 
 [scrolling]
 history = 10000

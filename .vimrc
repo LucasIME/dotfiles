@@ -42,6 +42,7 @@ set shiftwidth=4 " affect what happens when you press >>, << or ==. Also affect 
 set expandtab " tabs are spaces
 set smarttab " Uses shiftwidth instead of tabstop at start of lines
 set number " show line numbers
+set relativenumber " show other line numbers relative to where the cursor is
 set showcmd " show command in bottom bar
 set wildmenu " visual autocomplete for command menu
 set lazyredraw " redraw only when need to
@@ -85,6 +86,9 @@ let g:coc_global_extensions = [
   \ 'coc-java',
   \ 'coc-python',
   \ 'coc-rust-analyzer',
+  \ 'coc-zig',
+  \ 'coc-zls',
+  \ 'coc-elixir',
   \ ]
 
 " GoTo code navigation
@@ -108,5 +112,7 @@ inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
 
 " Use ctrl + space to trigger coc autocomplete
 inoremap <silent><expr> <c-@> coc#refresh()
+
+let g:coc_node_path = '/Users/lmeireles/.nvm/versions/node/v16.15.0/bin/node'
 
 set rtp+=/usr/local/opt/fzf

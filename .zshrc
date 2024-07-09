@@ -15,6 +15,9 @@ alias tmuxreset='tmux movew -r'
 # Largest dirs
 alias ldir='du -hs */ | sort -hr | head'
 
+# Use neovim by default
+alias vim="nvim"
+
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 export JAVA_HOME=`/usr/libexec/java_home -v 15`

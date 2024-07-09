@@ -4,9 +4,6 @@ syntax enable
 set nocompatible "be iMproved
 set showmode " Show current mode (Insert, Visual, etc...)
 set encoding=utf8
-set tabstop=4 " number of visual spaces per TAB
-set softtabstop=4 " number of spaces in tab when editing (backspace delete 4 spaces)
-set shiftwidth=4 " affect what happens when you press >>, << or ==. Also affect how automatic indentation works
 set expandtab " tabs are spaces
 set smarttab " Uses shiftwidth instead of tabstop at start of lines
 set number " show line numbers
@@ -31,13 +28,14 @@ set backspace=indent,eol,start " allows backspacing over autoindent, line breaks
 set hidden " Hide buffers when they are abandoned
 set clipboard^=unnamed,unnamedplus " Use system clipboard
 set noswapfile " no swap file, duh
-set scrolloff=9 " start scrolling before end is reached
+set scrolloff=10 " minimal number of screen lines to keep above and below the cursor
 set t_Co=256 " 256 colors
 set display+=uhex " display hex codes for non printable characters
 set shortmess-=S " display number of matches up to 99 when searching something
 set visualbell " visual bell rather than beeping
-" set list " show EOL sign, trailing spaces, etc...
+set list " show EOL sign, trailing spaces, etc...
 hi Visual cterm=none ctermbg=darkgrey ctermfg=cyan " Make visual selection readable
+set cursorline " Show which line your cursor is on
 match ErrorMsg '\s\+$'
 
 " Remaps

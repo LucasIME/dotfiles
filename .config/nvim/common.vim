@@ -1,37 +1,5 @@
 filetype indent plugin on " load filetype-specific indent files
 
-" Auto install vim-plug if not installed
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
-call plug#begin()
-Plug 'vim-scripts/lastpos.vim' " Goes back to last position you were when opening a file again
-Plug 'sheerun/vim-polyglot' " Syntax highlight for many different languages
-Plug 'leafgarland/typescript-vim' " suport for typescript
-Plug 'bling/vim-airline' " Cool line on the bottom
-Plug 'elzr/vim-json' " Json syntax highlighting
-Plug 'scrooloose/nerdtree' " Tree explorer
-Plug 'airblade/vim-gitgutter' " Shows git diff on line
-Plug 'w0rp/ale' " Asynchronous linting
-Plug 'flazz/vim-colorschemes' " Numerous colorschemes
-Plug 'ryanoasis/vim-devicons' " Icons
-Plug 'wincent/terminus' " Enhance terminal integration with vim
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'scrooloose/syntastic'
-Plug 'junegunn/fzf.vim' " fzf plugin
-Plug 'christoomey/vim-tmux-navigator' " tmux and vim integration
-Plug 'preservim/nerdcommenter'
-call plug#end() " All of your plugins must be added before this line
-
-" Code for randomly chosing between different colorschemes on startup
-" let schemes = 'dracula vimbrant sean maroloccio3 Tomorrow-Night-Eighties'
-" let seconds = str2nr(strftime('%S'))
-" execute 'colorscheme '.split(schemes)[seconds%4]
-" redraw
-
 syntax enable
 set nocompatible "be iMproved
 set showmode " Show current mode (Insert, Visual, etc...)
@@ -72,47 +40,9 @@ set visualbell " visual bell rather than beeping
 hi Visual cterm=none ctermbg=darkgrey ctermfg=cyan " Make visual selection readable
 match ErrorMsg '\s\+$'
 
-
 " Remaps
 map @ :NERDTreeToggle<CR> " @ as Shortcut to NERD Tree
 map <C-_> <Plug>NERDCommenterToggle
 nnoremap <C-p> :Files<cr>
-
-" Plugin Configs
-let g:coc_global_extensions = [
-  \ 'coc-tsserver',
-  \ 'coc-json',
-  \ 'coc-go',
-  \ 'coc-java',
-  \ 'coc-python',
-  \ 'coc-rust-analyzer',
-  \ 'coc-zig',
-  \ 'coc-zls',
-  \ 'coc-elixir',
-  \ ]
-
-" GoTo code navigation
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" use <tab> for trigger completion and navigate to the next complete item
-function! CheckBackspace() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-inoremap <silent><expr> <Tab>
-      \ coc#pum#visible() ? coc#pum#next(1) :
-      \ CheckBackspace() ? "\<Tab>" :
-      \ coc#refresh()
-
-inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
-
-" Use ctrl + space to trigger coc autocomplete
-inoremap <silent><expr> <c-@> coc#refresh()
-
-let g:coc_node_path = '/Users/lmeireles/.nvm/versions/node/v16.15.0/bin/node'
 
 set rtp+=/usr/local/opt/fzf

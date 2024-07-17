@@ -145,6 +145,13 @@ local autoFormat = {
   },
 }
 
+local copilot = {
+  "supermaven-inc/supermaven-nvim",
+  config = function()
+    require("supermaven-nvim").setup({})
+  end,
+}
+
 local plugins = {
   { "olimorris/onedarkpro.nvim", priority = 1000 }, -- Colorschem. Ensure it loads first
   "tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
@@ -159,6 +166,7 @@ local plugins = {
   lspZero,
   telescope,
   autoFormat,
+  copilot,
 }
 
 lazy.setup(plugins)

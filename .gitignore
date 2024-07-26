@@ -1,6 +1,0 @@
-# Exclude all, choose which folders to include by using negation
-*
-/*
-/*/
-
-!.gitignore

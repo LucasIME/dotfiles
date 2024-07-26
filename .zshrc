@@ -24,9 +24,6 @@ export JAVA_HOME=`/usr/libexec/java_home -v 15`
 export PATH=/Users/lmeireles/.cargo/bi:$PATH:$HOME/anaconda3/bin:/usr/local/sbin
 export GOPATH=/Users/lmeireles/Projects/GoProjs
 
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="" # No theme because I'm usign Pure: https://github.com/sindresorhus/pure
 
 # Uncomment the following line if you want to disable marking untracked files
@@ -34,10 +31,7 @@ ZSH_THEME="" # No theme because I'm usign Pure: https://github.com/sindresorhus/
 # much, much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
+# Zsh plugins
 plugins=(git zsh-syntax-highlighting zsh-autosuggestions autojump zsh-completions)
 
 ### Fix slowness of pastes with zsh-syntax-highlighting.zsh
@@ -83,15 +77,9 @@ source $ZSH/oh-my-zsh.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
 # Pure promp
 fpath+=$HOME/.zsh/pure
 PURE_PROMPT_SYMBOL="λ"
-
-# added by travis gem
-[ -f /Users/lmeireles/.travis/travis.sh ] && source /Users/lmeireles/.travis/travis.sh
-
 
 autoload -U promptinit; promptinit
 prompt pure

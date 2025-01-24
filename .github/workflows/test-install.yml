@@ -10,7 +10,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Build Docker Image
-        run: docker build -t dotfiles-test .
+        run: docker build -f .verify/Dockerfile -t dotfiles-test .
 
       - name: Run Verification
         run: docker run -t dotfiles-test bash -c "yes | /tmp/install.sh && /tmp/verify.sh" 

@@ -7,6 +7,6 @@ RUN DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get -y install tzdata
 COPY ./install.sh /tmp/install.sh
 RUN chmod +x /tmp/install.sh
 
-COPY ./verify.sh /tmp/verify.sh
+COPY .verify/verify.sh /tmp/verify.sh
 RUN chmod +x /tmp/verify.sh
 

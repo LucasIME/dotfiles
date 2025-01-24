@@ -14,5 +14,6 @@ check_command git
 check_command zsh
 check_command tmux
 check_command rg
+check_command blargh
 
 echo "All required tools are installed."

@@ -13,5 +13,5 @@ jobs:
         run: docker build -t dotfiles-test .
 
       - name: Run Verification
-        run: docker run -it dotfiles-test bash -c "yes | /tmp/install.sh && /tmp/verify.sh" 
+        run: docker run -t dotfiles-test bash -c "yes | /tmp/install.sh && /tmp/verify.sh" 
 

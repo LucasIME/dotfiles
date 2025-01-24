@@ -24,6 +24,12 @@ check_fzf_ctrl_r() {
   bindkey | grep history | grep "\^R" && echo "Fzf configured for history search" || echo "Fzf NOT configured for history search"
 }
 
+check_dotfiles() {
+  diff -q "$HOME/.vimrc" "/tmp/expected/.vimrc" && echo "Vim config is correct" || echo "Error: Vim config is not correct."
+  diff -q "$HOME/.tmux.conf" "/tmp/expected/.tmux.conf" && echo "Tmux config is correct" || echo "Error: Tmux config is not correct."
+  diff -q "$HOME/.zshrc" "/tmp/expected/.zshrc" && echo "Zsh config is correct" || echo "Error: Zsh config is not correct."
+}
+
 # Check for required tools
 check_command git
 check_command zsh
@@ -33,5 +39,6 @@ check_command nvim
 check_command rg
 check_fzf
 check_fzf_ctrl_r
+check_dotfiles
 
 echo "All required tools are installed."

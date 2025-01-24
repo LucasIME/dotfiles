@@ -11,6 +11,15 @@ check_command() {
   fi
 }
 
+check_fzf() {
+  if [ -x "$HOME/.fzf/bin/fzf" ]; then
+    echo "fzf is installed"
+  else
+    echo "Error: fzf is not installed." >&2
+    exit 1
+  fi
+}
+
 check_fzf_ctrl_r() {
   bindkey | grep history | grep "\^R" && echo "Fzf configured for history search" || echo "Fzf NOT configured for history search"
 }
@@ -22,7 +31,7 @@ check_command tmux
 check_command vim
 check_command nvim
 check_command rg
-check_command fzf
+check_fzf
 check_fzf_ctrl_r
 
 echo "All required tools are installed."

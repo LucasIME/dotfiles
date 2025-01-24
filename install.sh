@@ -9,6 +9,13 @@ command_installed() {
     fi
 }
 
+maybe_update_pkg_manager() {
+    if command_installed "apt-get"; then
+        echo "Updating apt-get"
+        apt-get update
+    fi
+}
+
 install() {
     if command_installed "brew"; then
         brew install "$1"
@@ -123,6 +130,7 @@ install_tmux_plugins() {
 
 install_package_manager_if_mac
 install_reattach_to_user_namespace_if_mac
+maybe_update_pkg_manager
 install_git
 
 programs_to_install=(vim tmux zsh ripgrep)

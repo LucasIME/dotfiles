@@ -133,7 +133,7 @@ install_reattach_to_user_namespace_if_mac
 maybe_update_pkg_manager
 install_git
 
-programs_to_install=(vim tmux zsh ripgrep)
+programs_to_install=(vim neovim tmux zsh ripgrep)
 
 for program in "${programs_to_install[@]}"; do try_install "$program"; done;
 

@@ -75,9 +75,7 @@ source $ZSH/oh-my-zsh.sh
 
 #precmd_functions+=(_fix_cursor)
 
-# Fzf bindings
-source /usr/share/doc/fzf/examples/key-bindings.zsh
-source /usr/share/doc/fzf/examples/completion.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Pure promp
 fpath+=$HOME/.zsh/pure

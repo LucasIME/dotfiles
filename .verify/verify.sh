@@ -31,12 +31,12 @@ check_dotfiles() {
 }
 
 
-check_did_not_accidentally_create_tilde_folder_in_home() {
-  if [[ -d "$HOME/~" ]]; then
-    echo "Folder '~' exists in home directory"
-    exit 1
+check_zsh_plugins() {
+  if [[ -d "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions" ]]; then
+    echo "zsh-autosuggestions installed"
   else
-    echo "Validated '~' does not exist in home directory"
+    echo "zsh-autosuggestions not found in expected folder"
+    exit 1
   fi
 }
 
@@ -50,6 +50,6 @@ check_command rg
 check_fzf
 check_fzf_ctrl_r
 check_dotfiles
-check_did_not_accidentally_create_tilde_folder_in_home
+check_zsh_plugins
 
 echo "All required tools are installed."

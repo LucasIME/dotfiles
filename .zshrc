@@ -75,7 +75,9 @@ source $ZSH/oh-my-zsh.sh
 
 #precmd_functions+=(_fix_cursor)
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# Fzf bindings
+source /usr/share/doc/fzf/examples/key-bindings.zsh
+source /usr/share/doc/fzf/examples/completion.zsh
 
 # Pure promp
 fpath+=$HOME/.zsh/pure
@@ -106,6 +108,7 @@ npm() {
     npm "$@"
 }
 
+source <(fzf --zsh)
 setopt APPEND_HISTORY
 
 # zprof

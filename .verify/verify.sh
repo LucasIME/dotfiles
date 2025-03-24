@@ -30,14 +30,21 @@ check_dotfiles() {
   diff -q "$HOME/.zshrc" "/tmp/expected/.zshrc" && echo "Zsh config is correct" || echo "Error: Zsh config is not correct."
 }
 
-
 check_zsh_plugins() {
-  if [[ -d "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions" ]]; then
-    echo "zsh-autosuggestions installed"
-  else
-    echo "zsh-autosuggestions not found in expected folder"
-    exit 1
-  fi
+  local plugins=(
+    "zsh-autosuggestions"
+    "zsh-completions"
+    "zsh-syntax-highlighting"
+  )
+
+  for plugin in "${plugins[@]}"; do
+    if [[ -d "$HOME/.oh-my-zsh/custom/plugins/$plugin" ]]; then
+      echo "$plugin installed"
+    else
+      echo "$plugin not found in expected folder"
+      exit 1
+    fi
+  done
 }
 
 # Check for required tools

@@ -30,6 +30,23 @@ check_dotfiles() {
   diff -q "$HOME/.zshrc" "/tmp/expected/.zshrc" && echo "Zsh config is correct" || echo "Error: Zsh config is not correct."
 }
 
+check_zsh_plugins() {
+  local plugins=(
+    "zsh-autosuggestions"
+    "zsh-completions"
+    "zsh-syntax-highlighting"
+  )
+
+  for plugin in "${plugins[@]}"; do
+    if [[ -d "$HOME/.oh-my-zsh/custom/plugins/$plugin" ]]; then
+      echo "$plugin installed"
+    else
+      echo "$plugin not found in expected folder"
+      exit 1
+    fi
+  done
+}
+
 # Check for required tools
 check_command git
 check_command zsh
@@ -40,5 +57,6 @@ check_command rg
 check_fzf
 check_fzf_ctrl_r
 check_dotfiles
+check_zsh_plugins
 
 echo "All required tools are installed."

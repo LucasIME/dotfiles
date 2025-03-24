@@ -30,6 +30,16 @@ check_dotfiles() {
   diff -q "$HOME/.zshrc" "/tmp/expected/.zshrc" && echo "Zsh config is correct" || echo "Error: Zsh config is not correct."
 }
 
+
+check_did_not_accidentally_create_tilde_folder_in_home() {
+  if [[ -d "$HOME/~" ]]; then
+    echo "Folder '~' exists in home directory"
+    exit 1
+  else
+    echo "Validated '~' does not exist in home directory"
+  fi
+}
+
 # Check for required tools
 check_command git
 check_command zsh
@@ -40,5 +50,6 @@ check_command rg
 check_fzf
 check_fzf_ctrl_r
 check_dotfiles
+check_did_not_accidentally_create_tilde_folder_in_home
 
 echo "All required tools are installed."

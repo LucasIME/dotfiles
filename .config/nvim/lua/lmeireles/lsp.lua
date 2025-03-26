@@ -7,11 +7,17 @@ lsp_zero.preset("recommended")
 lsp_zero.on_attach(function(client, bufnr)
   -- see :help lsp-zero-keybindings
   local opts = { buffer = bufnr, remap = false }
+
   vim.keymap.set("n", "gr", function()
     vim.lsp.buf.references()
   end, vim.tbl_deep_extend("force", opts, { desc = "LSP Goto Reference" }))
+
   vim.keymap.set("n", "gd", function()
     vim.lsp.buf.definition()
+  end, opts)
+
+  vim.keymap.set("n", "<leader>rn", function()
+    vim.lsp.buf.rename()
   end, opts)
 
   -- to learn the available actions

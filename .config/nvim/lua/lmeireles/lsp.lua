@@ -30,7 +30,7 @@ lsp_zero.setup()
 --- read this: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guide/integrate-with-mason-nvim.md
 require("mason").setup({})
 
-local langServersToSetup = { "elixirls", "lua_ls", "pyright", "rust_analyzer", "tsserver" }
+local langServersToSetup = { "elixirls", "lua_ls", "pyright", "rust_analyzer", "tsserver", "bashls" }
 require("mason-lspconfig").setup({
   ensure_installed = langServersToSetup,
 })

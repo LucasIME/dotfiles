@@ -139,7 +139,7 @@ my_shell_hook() {
   other formatting. Do not include the command into a code block.
   Don't include the shell itself (bash, zsh, etc.) in the command.
   "
-  local model='gemma3'
+  local model='gpt-oss'
 
   BUFFER="$QUESTION ... $model"
   zle -R

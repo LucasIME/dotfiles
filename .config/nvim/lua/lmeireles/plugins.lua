@@ -34,17 +34,13 @@ local treesitterObject = {
   build = ":TSUpdate",
 }
 
-local lspZero = {
-  "VonHeikemen/lsp-zero.nvim",
+local lspPlugins = {
+  "neovim/nvim-lspconfig",
   dependencies = {
-    -- LSP Support
-    "neovim/nvim-lspconfig",
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     { "lukas-reineke/lsp-format.nvim", config = true },
-
-    -- Useful status updates for LSP.
-    { "j-hui/fidget.nvim", opts = {} },
+    { "j-hui/fidget.nvim",             opts = {} },
 
     -- Autocompletion
     "hrsh7th/nvim-cmp",
@@ -82,7 +78,7 @@ local telescope = { -- Fuzzy Finder (files, lsp, etc)
     { "nvim-telescope/telescope-ui-select.nvim" },
 
     -- Useful for getting pretty icons, but requires a Nerd Font.
-    { "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
+    { "nvim-tree/nvim-web-devicons",            enabled = vim.g.have_nerd_font },
   },
   config = function()
     -- Telescope is a fuzzy finder!
@@ -145,28 +141,27 @@ local autoFormat = {
   },
 }
 
-local copilot = {
-  "supermaven-inc/supermaven-nvim",
-  config = function()
-    require("supermaven-nvim").setup({})
-  end,
-}
+--local copilot = {
+--"supermaven-inc/supermaven-nvim",
+--config = function()
+--require("supermaven-nvim").setup({})
+--end,
+--}
 
 local plugins = {
   { "olimorris/onedarkpro.nvim", priority = 1000 }, -- Colorschem. Ensure it loads first
-  "tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
-  "bling/vim-airline", -- Cool line on the bottom
-  "scrooloose/nerdtree", -- Tree explorer
-  "ryanoasis/vim-devicons", -- Icons
-  "wincent/terminus", -- Enhance terminal integration with vim
-  "junegunn/fzf.vim", -- fzf plugin
-  "preservim/nerdcommenter", -- Easy to toggle comments
-  "christoomey/vim-tmux-navigator", -- tmux and vim integration
+  "tpope/vim-sleuth",                               -- Detect tabstop and shiftwidth automatically
+  "bling/vim-airline",                              -- Cool line on the bottom
+  "scrooloose/nerdtree",                            -- Tree explorer
+  "ryanoasis/vim-devicons",                         -- Icons
+  "junegunn/fzf.vim",                               -- fzf plugin
+  "preservim/nerdcommenter",                        -- Easy to toggle comments
+  "christoomey/vim-tmux-navigator",                 -- tmux and vim integration
   treesitterObject,
-  lspZero,
+  lspPlugins,
   telescope,
   autoFormat,
-  copilot,
+  --copilot,
 }
 
 lazy.setup(plugins)

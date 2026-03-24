@@ -1,11 +1,10 @@
 ---
 -- LSP setup
 ---
-local lsp_zero = require("lsp-zero")
-lsp_zero.preset("recommended")
+local lspconfig = require("lspconfig")
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-lsp_zero.on_attach(function(client, bufnr)
-  -- see :help lsp-zero-keybindings
+local on_attach = function(client, bufnr)
   local opts = { buffer = bufnr, remap = false }
 
   vim.keymap.set("n", "gr", function()
@@ -16,29 +15,33 @@ lsp_zero.on_attach(function(client, bufnr)
     vim.lsp.buf.definition()
   end, opts)
 
+  vim.keymap.set("n", "K", function()
+    vim.lsp.buf.hover()
+  end, opts)
+
   vim.keymap.set("n", "<leader>rn", function()
     vim.lsp.buf.rename()
   end, opts)
 
-  -- to learn the available actions
-  lsp_zero.default_keymaps({ buffer = bufnr })
-end)
+  vim.keymap.set("n", "<leader>ca", function()
+    vim.lsp.buf.code_action()
+  end, opts)
+end
 
-lsp_zero.setup()
+local langServersToSetup = { "elixirls", "lua_ls", "pyright", "rust_analyzer", "ts_ls", "bashls", "ruff" }
 
---- if you want to know more about lsp-zero and mason.nvim
---- read this: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guide/integrate-with-mason-nvim.md
 require("mason").setup({})
-
-local langServersToSetup = { "elixirls", "lua_ls", "pyright", "rust_analyzer", "tsserver", "bashls" }
 require("mason-lspconfig").setup({
   ensure_installed = langServersToSetup,
+  handlers = {
+    function(server_name)
+      lspconfig[server_name].setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+      })
+    end,
+  },
 })
-
-local lspConfig = require("lspconfig")
-for _, server in ipairs(langServersToSetup) do
-  lspConfig[server].setup({})
-end
 
 ---
 -- Autocompletion config
@@ -46,6 +49,18 @@ end
 
 local cmp = require("cmp")
 cmp.setup({
+  sources = {
+    { name = "nvim_lsp" },
+    { name = "nvim_lua" },
+    { name = "luasnip" },
+    { name = "buffer" },
+    { name = "path" },
+  },
+  snippet = {
+    expand = function(args)
+      require("luasnip").lsp_expand(args.body)
+    end,
+  },
   mapping = cmp.mapping.preset.insert({
     -- Tab key to confirm completion
     ["<Tab>"] = cmp.mapping.confirm({ select = true }),

@@ -93,9 +93,9 @@ pull_dotfiles_from_github() {
 }
 
 stow_files() {
-    stow vim
-    stow zsh
-    stow tmux
+    stow -t $HOME vim
+    stow -t $HOME zsh
+    stow -t $HOME tmux
 }
 
 install_oh_my_zsh() {

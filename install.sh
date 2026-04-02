@@ -87,16 +87,15 @@ install_fzf() {
 
 pull_dotfiles_from_github() {
     DOTFILES_REPO=https://github.com/LucasIME/dotfiles.git
-    echo ".cfg" >> .gitignore
-    git clone --bare $DOTFILES_REPO "$HOME"/.cfg
-    config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
-    mkdir -p .config-backup && \
-        config checkout 2>&1 | grep -E "\s+\." | awk {'print $1'} | \
-        xargs -I{} mv {} .config-backup/{}
-    $config checkout
-    $config reset --hard
-    $config pull
-    $config config --local status.showUntrackedFiles no
+    mkdir $HOME/Projects
+    git clone $DOTFILES_REPO "$HOME"/Projects/dotfiles
+    cd "$HOME"/Projects/dotfiles
+}
+
+stow_files() {
+    stow -t $HOME vim
+    stow -t $HOME zsh
+    stow -t $HOME tmux
 }
 
 install_oh_my_zsh() {
@@ -133,7 +132,7 @@ install_reattach_to_user_namespace_if_mac
 maybe_update_pkg_manager
 install_git
 
-programs_to_install=(vim neovim tmux zsh ripgrep)
+programs_to_install=(stow vim neovim tmux zsh ripgrep)
 
 for program in "${programs_to_install[@]}"; do try_install "$program"; done;
 
@@ -142,4 +141,5 @@ install_tmux_plugins
 install_oh_my_zsh
 install_oh_my_zsh_plugins
 pull_dotfiles_from_github
+stow_files
 install_pure_prompt

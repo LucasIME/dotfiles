@@ -1,5 +1,5 @@
 -- Set <space> as the leader key
-vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappings are correct
+vim.g.mapleader = " "      -- Make sure to set `mapleader` before lazy so your mappings are correct
 vim.g.maplocalleader = " " -- Same for `maplocalleader`
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal

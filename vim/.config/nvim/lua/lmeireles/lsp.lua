@@ -1,7 +1,6 @@
 ---
 -- LSP setup
 ---
-local lspconfig = require("lspconfig")
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 local on_attach = function(client, bufnr)
@@ -35,10 +34,11 @@ require("mason-lspconfig").setup({
   ensure_installed = langServersToSetup,
   handlers = {
     function(server_name)
-      lspconfig[server_name].setup({
+      vim.lsp.coonfig(server_name, {
         capabilities = capabilities,
         on_attach = on_attach,
       })
+      vim.lsp.enable(server_name)
     end,
   },
 })

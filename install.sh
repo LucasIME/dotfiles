@@ -93,6 +93,7 @@ pull_dotfiles_from_github() {
 }
 
 stow_files() {
+    stow -t $HOME git 
     stow -t $HOME vim
     stow -t $HOME zsh
     stow -t $HOME tmux

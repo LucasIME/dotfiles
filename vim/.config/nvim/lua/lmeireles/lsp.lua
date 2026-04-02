@@ -27,14 +27,14 @@ local on_attach = function(client, bufnr)
   end, opts)
 end
 
-local langServersToSetup = { "elixirls", "lua_ls", "pyright", "rust_analyzer", "ts_ls", "bashls", "ruff" }
+local langServersToSetup = { "elixirls", "lua_ls", "pyright", "rust_analyzer", "bashls", "ruff", "ts_ls" }
 
 require("mason").setup({})
 require("mason-lspconfig").setup({
   ensure_installed = langServersToSetup,
   handlers = {
     function(server_name)
-      vim.lsp.coonfig(server_name, {
+      vim.lsp.config(server_name, {
         capabilities = capabilities,
         on_attach = on_attach,
       })

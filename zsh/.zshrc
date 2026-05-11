@@ -29,7 +29,7 @@ ZSH_THEME="" # No theme because I'm usign Pure: https://github.com/sindresorhus/
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Zsh plugins
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions autojump zsh-completions)
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions zsh-completions)
 
 ### Fix slowness of pastes with zsh-syntax-highlighting.zsh
 pasteinit() {

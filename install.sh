@@ -112,8 +112,6 @@ install_oh_my_zsh_plugins() {
 
     echo "Installing zsh completions"
     git clone https://github.com/zsh-users/zsh-completions "${ZSH_CUSTOM:-${ZSH:-$HOME/.oh-my-zsh}/custom}"/plugins/zsh-completions
-
-    try_install autojump
 }
 
 install_pure_prompt() {

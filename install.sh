@@ -99,19 +99,15 @@ stow_files() {
     stow -t $HOME tmux
 }
 
-install_oh_my_zsh() {
-    RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh      )"
-}
-
-install_oh_my_zsh_plugins() {
-    echo "Installing zsh syntax highlighting"
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"/plugins/zsh-syntax-highlighting
-
-    echo "Installing zsh autosuggestions"
-    git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"/plugins/zsh-autosuggestions
-
-    echo "Installing zsh completions"
-    git clone https://github.com/zsh-users/zsh-completions "${ZSH_CUSTOM:-${ZSH:-$HOME/.oh-my-zsh}/custom}"/plugins/zsh-completions
+install_antidote() {
+    if [ -d "$HOME/.antidote" ]; then
+        echo "antidote already installed"
+    else
+        echo "Cloning antidote plugin manager"
+        git clone --depth=1 https://github.com/mattmc3/antidote.git "$HOME/.antidote"
+    fi
+    # Plugins listed in ~/.zsh_plugins.txt are cloned lazily by `antidote load`
+    # on first shell startup, so no explicit plugin cloning is needed here.
 }
 
 install_pure_prompt() {
@@ -137,8 +133,7 @@ for program in "${programs_to_install[@]}"; do try_install "$program"; done;
 
 install_fzf
 install_tmux_plugins
-install_oh_my_zsh
-install_oh_my_zsh_plugins
+install_antidote
 pull_dotfiles_from_github
 stow_files
 install_pure_prompt

@@ -1,0 +1,16 @@
+# Antidote plugin list — see https://antidote.sh
+# Loaded from .zshrc via `antidote load`.
+
+# Initialize completions (runs compinit). Keep near the top, before any compdef
+# calls. antidote does NOT run compinit on its own, so this replaces what
+# oh-my-zsh used to do for us.
+mattmc3/ez-compinit
+
+# Fish-like suggestions from your history as you type.
+zsh-users/zsh-autosuggestions
+
+# Extra completion definitions (adds to fpath).
+zsh-users/zsh-completions
+
+# Syntax highlighting for the command line — MUST be listed last.
+zsh-users/zsh-syntax-highlighting

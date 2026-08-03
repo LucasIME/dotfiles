@@ -15,21 +15,9 @@ alias ldir='du -hs */ | sort -hr | head'
 # Use neovim by default
 alias vim="nvim"
 
-# Path to your oh-my-zsh installation.
-export ZSH=~/.oh-my-zsh
 export JAVA_HOME=`/usr/libexec/java_home -v 15`
 export PATH=/Users/lmeireles/.cargo/bi:$PATH:$HOME/anaconda3/bin:/usr/local/sbin
 export GOPATH=/Users/lmeireles/Projects/GoProjs
-
-ZSH_THEME="" # No theme because I'm usign Pure: https://github.com/sindresorhus/pure
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Zsh plugins
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions zsh-completions)
 
 ### Fix slowness of pastes with zsh-syntax-highlighting.zsh
 pasteinit() {
@@ -44,9 +32,11 @@ zstyle :bracketed-paste-magic paste-init pasteinit
 zstyle :bracketed-paste-magic paste-finish pastefinish
 ### Fix slowness of pastes
 
-# Adding zsh-completions to fpath. Should be just before sourcing oh-my-zsh
-fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
-source $ZSH/oh-my-zsh.sh
+# Plugins via antidote (https://antidote.sh). Reads ~/.zsh_plugins.txt and
+# sources a generated static file. compinit is handled by ez-compinit, listed
+# in that file. Keep this before the prompt setup below.
+source ${ZDOTDIR:-$HOME}/.antidote/antidote.zsh
+antidote load
 
 # Vim mode
 #bindkey -v

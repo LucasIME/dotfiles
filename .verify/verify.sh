@@ -25,9 +25,11 @@ check_fzf_ctrl_r() {
 }
 
 check_dotfiles() {
-  diff -q "$HOME/.vimrc" "/tmp/expected/.vimrc" && echo "Vim config is correct" || echo "Error: Vim config is not correct."
-  diff -q "$HOME/.tmux.conf" "/tmp/expected/.tmux.conf" && echo "Tmux config is correct" || echo "Error: Tmux config is not correct."
-  diff -q "$HOME/.zshrc" "/tmp/expected/.zshrc" && echo "Zsh config is correct" || echo "Error: Zsh config is not correct."
+  # Expected files come from `COPY . /tmp/expected/` in the Dockerfile, so they
+  # live under their stow subdirectories, not the repo root.
+  diff -q "$HOME/.vimrc" "/tmp/expected/vim/.vimrc" && echo "Vim config is correct" || { echo "Error: Vim config is not correct." >&2; exit 1; }
+  diff -q "$HOME/.tmux.conf" "/tmp/expected/tmux/.tmux.conf" && echo "Tmux config is correct" || { echo "Error: Tmux config is not correct." >&2; exit 1; }
+  diff -q "$HOME/.zshrc" "/tmp/expected/zsh/.zshrc" && echo "Zsh config is correct" || { echo "Error: Zsh config is not correct." >&2; exit 1; }
 }
 
 check_zsh_plugins() {

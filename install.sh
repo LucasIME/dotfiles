@@ -66,7 +66,10 @@ install_reattach_to_user_namespace_if_mac() {
 
 install_git() {
     try_install git
-    git config --global http.sslVerify false
+    # NOTE: previously ran `git config --global http.sslVerify false` here, but
+    # that created a real ~/.gitconfig before stow ran, making `stow git` abort.
+    # It also disabled TLS verification globally/permanently. Removed: clones
+    # work fine over HTTPS without it.
 }
 
 install_fzf() {
@@ -81,7 +84,10 @@ install_fzf() {
     else
         echo "Installing fzf through git"
         git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-        ~/.fzf/install
+        # --no-update-rc: don't let fzf append to ~/.zshrc. Doing so creates a
+        # real file that makes `stow zsh` abort (and thus skip .zsh_plugins.txt).
+        # Our .zshrc already sources fzf via `source <(fzf --zsh)`.
+        ~/.fzf/install --key-bindings --completion --no-update-rc
     fi
 }
 

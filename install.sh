@@ -107,7 +107,7 @@ install_antidote() {
         git clone --depth=1 https://github.com/mattmc3/antidote.git "$HOME/.antidote"
     fi
     # Plugins listed in ~/.zsh_plugins.txt are cloned lazily by `antidote load`
-    # on first shell startup, so no explicit plugin cloning is needed here.
+    # on first interactive shell startup, so no explicit plugin cloning here.
 }
 
 install_pure_prompt() {

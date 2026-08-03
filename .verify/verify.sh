@@ -31,17 +31,23 @@ check_dotfiles() {
 }
 
 check_zsh_plugins() {
+  source "$HOME/.antidote/antidote.zsh"
+
+  # Plugins are cloned lazily on first shell startup; trigger that here so a
+  # non-interactive test run populates them before we check.
+  antidote load
+
   local plugins=(
-    "zsh-autosuggestions"
-    "zsh-completions"
-    "zsh-syntax-highlighting"
+    "zsh-users/zsh-autosuggestions"
+    "zsh-users/zsh-completions"
+    "zsh-users/zsh-syntax-highlighting"
   )
 
   for plugin in "${plugins[@]}"; do
-    if [[ -d "$HOME/.oh-my-zsh/custom/plugins/$plugin" ]]; then
+    if antidote path "$plugin" &> /dev/null; then
       echo "$plugin installed"
     else
-      echo "$plugin not found in expected folder"
+      echo "$plugin not found (antidote failed to clone it)"
       exit 1
     fi
   done

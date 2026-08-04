@@ -147,6 +147,13 @@ bindkey '^Xx' my_shell_hook
 
 source <(fzf --zsh)
 
-setopt APPEND_HISTORY
+# Persistent history file shared by every Zsh instance, including tmux panes/windows
+HISTFILE="$HOME/.zsh_history"
+HISTSIZE=100000
+SAVEHIST=100000
+
+# Immediately write commands and import commands written by other shells.
+setopt SHARE_HISTORY
 
 # zprof
+
